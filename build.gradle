@@ -8,6 +8,7 @@ sourceCompatibility = 1.8
 
 apply plugin: 'application'
 apply plugin: 'java'
+apply plugin: 'groovy'
 
 mainClassName = 'design.hachidori.StreamSample'
 
@@ -20,4 +21,10 @@ dependencies {
     testCompile 'org.codehaus.groovy:groovy-all:2.4.12'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
     testCompile 'junit:junit:4.12'
+}
+
+task checkArray(type: JavaExec) {
+    main = "design.hachidori.StreamSample"
+    classpath = sourceSets.main.runtimeClasspath
+    args(1, 1, 2, 5, 7, 21, 23, 35, 70, 71, 100, 120)
 }

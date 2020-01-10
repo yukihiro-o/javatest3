@@ -8,10 +8,9 @@ import java.util.stream.Collectors;
 public class StreamSample {
 
     public static void main(String[] args) {
-        final Integer[] array = {1, 1, 2, 5, 7, 21, 23, 35, 70, 71, 100, 120};
-
+        List<Integer> argList = Arrays.stream(args).map(Integer::parseInt).collect(Collectors.toList());
         StreamSample sample = new StreamSample();
-        sample.arrange(Arrays.asList(array))
+        sample.arrange(argList)
                 .stream()
                 .forEach(System.out::println);
     }
