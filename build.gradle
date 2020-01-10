@@ -6,11 +6,8 @@ version '1.0'
 
 sourceCompatibility = 1.8
 
-apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'groovy'
-
-mainClassName = 'design.hachidori.StreamSample'
 
 repositories {
     mavenCentral()
@@ -21,6 +18,13 @@ dependencies {
     testCompile 'org.codehaus.groovy:groovy-all:2.4.12'
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
     testCompile 'junit:junit:4.12'
+}
+
+sourceSets {
+    test {
+        java.srcDirs = ['src/test']
+        groovy.srcDirs = ['src/test']
+    }
 }
 
 task checkArray(type: JavaExec) {
